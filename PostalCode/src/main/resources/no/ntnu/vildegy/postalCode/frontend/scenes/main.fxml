@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" stylesheets="@../css/styleMain.css " xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.vildegy.postalCode.frontend.MainController">
+  <children>
+    <MenuBar fx:id="menuBar" prefHeight="95.0" prefWidth="640.0" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#exportToFile" text="Export to file...">
+              <accelerator>
+                  <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+              </accelerator>
+              </MenuItem>
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <Menu fx:id="exitApplication" mnemonicParsing="false" onAction="#exitApplication" text="Exit " />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem fx:id="aboutDialog" mnemonicParsing="false" onAction="#showAboutDialog" text="About " />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane fx:id="anchorPane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
+            <TableView fx:id="tableView" layoutX="-1.0" layoutY="78.0" prefHeight="292.0" prefWidth="640.0">
+              <columns>
+                <TableColumn id="columnTextZip" fx:id="zipCodeColumn" prefWidth="163.0" text="Zip code" />
+                <TableColumn fx:id="cityNameColumn" prefWidth="228.0" text="City name" />
+                  <TableColumn fx:id="municipalityNameColumn" prefWidth="248.0" text="Municipality name" />
+              </columns>
+            </TableView>
+            <TextField fx:id="zipCodeTextField" layoutX="12.0" layoutY="36.0" onKeyPressed="#handleEnterPressed" prefHeight="23.0" prefWidth="252.0" />
+            <Text fx:id="zipCodeText" fill="WHITE" layoutX="17.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zip code: " wrappingWidth="233.4443359375" />
+            <TextField fx:id="cityNameTextField" layoutX="290.0" layoutY="36.0" onKeyPressed="#handleEnterPressed" prefHeight="6.0" prefWidth="246.0" />
+            <Text fx:id="cityNameText" fill="WHITE" layoutX="296.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City name: " wrappingWidth="233.4443359375" />
+            <Button fx:id="searchButton" layoutX="576.0" layoutY="25.0" mnemonicParsing="false" onAction="#findPostalCode" prefHeight="30.0" prefWidth="15.0" styleClass="searchButton" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

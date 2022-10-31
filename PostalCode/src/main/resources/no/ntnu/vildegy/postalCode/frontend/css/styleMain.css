@@ -1,0 +1,63 @@
+/**
+Gives the application the dark mode design
+And implements the search button icon to the search button
+ */
+
+
+.searchButton {
+    -fx-graphic: url("search.png");
+    -fx-focus-traversable: false;
+    -fx-background-color: #212121;
+    -fx-control-inner-background: derive(-fx-base, 35%);
+    -fx-effect: dropshadow(gaussian , #424242 , 10,0,0,1 );
+}
+
+.searchButton:hover {
+    -fx-cursor: HAND;
+}
+
+.menu-bar:hover {
+    -fx-cursor: HAND;
+}
+
+
+.root {
+    -fx-accent: #212121;
+    -fx-focus-color: -fx-accent;
+    -fx-base: #212121;
+    -fx-control-inner-background: derive(-fx-base, 35%);
+    -fx-control-inner-background-alt: -fx-control-inner-background ;
+}
+
+.label{
+    -fx-text-fill: #FFFFFF;
+}
+
+.text-field {
+    -fx-prompt-text-fill: #FFFFFF;
+}
+
+.titulo{
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+}
+
+.button{
+    -fx-focus-traversable: false;
+}
+
+.button:hover{
+    -fx-text-fill: #FFFFFF;
+}
+
+.separator *.line {
+    -fx-background-color: #121212;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+}
+
+.table-view {
+    -fx-border-color: #121212;
+}
+
+

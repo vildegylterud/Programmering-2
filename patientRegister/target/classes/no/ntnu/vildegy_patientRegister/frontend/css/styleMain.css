@@ -1,0 +1,9 @@
+.addPatientBtn {
+    -fx-graphic: url("add.png");
+}
+.removePatientBtn {
+    -fx-graphic: url("remove.png");
+}
+.editPatientBtn {
+    -fx-graphic: url("edit.png");
+}
